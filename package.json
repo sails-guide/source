@@ -1,0 +1,15 @@
+{
+  "name": "sailswiki",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev content",
+    "build": "vuepress build content"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "vuepress": "^1.0.3"
+  }
+}
