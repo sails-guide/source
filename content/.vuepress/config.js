@@ -2,9 +2,8 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = {
-  title: 'Sails Wiki',
+  title: 'Sails Guide',
   description: 'Helping you to navigate the 7 seas',
-  ga: 'UA-136500374-1',
 
   themeConfig: {
     logo: '/images/captain.svg',
@@ -18,53 +17,56 @@ module.exports = {
         lastUpdated: 'Last updated',
         nav: require('./nav/en'),
         sidebar: {
-          // '/': getApiSidebar(),
-          '/': getDbSidebar(),
+          '/': getSidebar(),
         }
       }
     },
 
+    plugins: [
+      [
+        '@vuepress/google-analytics', {
+          ga: 'UA-136500374-1'
+        }
+      ]
+    ],
+
     // Assumes GitHub. Can also be a full GitLab url.
-    repo: 'vuejs/vuepress',
-    // Customising the header label
-    // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
-    repoLabel: 'Contribute!',
-
-    // Optional options for generating "Edit this page" link
-
+    repo: 'sails-guide/source',
+    repoLabel: 'Wanna help?',
     // if your docs are in a different repo from your main project:
-    docsRepo: 'vuejs/vuepress',
+    // docsRepo: 'sails-wiki/source',
     // if your docs are not at the root of the repo:
-    docsDir: 'docs',
+    docsDir: 'content',
     // if your docs are in a specific branch (defaults to 'master'):
     docsBranch: 'master',
     // defaults to false, set to true to enable
-    editLinks: true,
-    // custom text for edit link. Defaults to "Edit this page"
-    editLinkText: 'Help us improve this page!'
+    editLinks: true
   }
 }
 
-foo('Databases & ORM', 'database', [['postgresql', 'PostgreSQL']] )
-function foo (title, basePath, subPaths) {
+function getSidebarMenu (title, basePath, subPaths) {
   const children = [ `/${basePath}/` ]
 
   if (subPaths) {
     for (const [dir, name] of subPaths) {
       const contentPath = path.resolve(__dirname, `../${basePath}/${dir}`)
-      console.log('Lookin for files in', contentPath)
       const subChildren = fs.readdirSync(contentPath)
-          .filter(n => n !== 'README.md' && n.match(/.*[.]md$/))
+          .filter(n => n !== 'README.md' && n.match(/^[^_].*[.]md$/))
           .map(n => `/${basePath}/${dir}/` + n.replace(/[.]md$/, ''))
-      console.log('Found children', subChildren)
       subChildren.unshift(`/${basePath}/${dir}/`)
-
       children.push({
         title: name,
         collapsable: true,
         children: subChildren
       })
     }
+  } else {
+    const contentPath = path.resolve(__dirname, `../${basePath}`)
+    children.push(...
+        fs.readdirSync(contentPath)
+        .filter(n => n !== 'README.md' && n.match(/^[^_].*[.]md$/))
+        .map(n => `/${basePath}/` + n.replace(/[.]md$/, ''))
+    )
   }
 
   const out = {
@@ -73,41 +75,19 @@ function foo (title, basePath, subPaths) {
     children
   }
 
-  console.log('Built menu', out)
   return out
 }
 
-function getDbSidebar () {
-  const sidebar = [
-    foo('Databases & ORM', 'database', [
-      ['postgresql', 'PostgreSQL'],
-      ['mongodb', 'MongoDB'],
-      ['mysql', 'MySQL'],
-    ]),
-    foo('Parasails', 'parasails'),
-  ]
-  console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
-  console.log('Built sidebar', JSON.stringify(sidebar, null, 4))
-  console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
-  return sidebar
-
-/*
+function getSidebar () {
   return [
-    {
-      title: 'Database & ORM',
-      collapsable: true,
-      children: [
-        '/database/',
-        {
-          title: 'PostgreSQL',
-          collabsible: true,
-          children: [
-            '/database/postgresql/',
-            '/database/postgresql/native-postgres-arrays'
-          ]
-        }
-      ]
-    }
+    ['/', 'Home'],
+    getSidebarMenu('Databases & ORM', 'database', [
+      ['postgresql', 'PostgreSQL'],
+      // ['mongodb', 'MongoDB'],
+      // ['mysql', 'MySQL'],
+    ]),
+    getSidebarMenu('Parasails', 'parasails'),
+    getSidebarMenu('Deployment', 'deployment'),
+    'faq'
   ]
-*/
 }

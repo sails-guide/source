@@ -11,7 +11,7 @@ Enter <a href="https://www.postgresql.org/docs/9.1/citext.html" target="_blank">
 "Essentially, it internally calls lower when comparing values. Otherwise, it behaves almost exactly like text."
 Sounds like what we want!
 
-#### Installing citext extension
+### Installing citext extension
 Before you are able to take advantage of the citext data-type, you will need to load the required extension into
 your database.
 
@@ -20,10 +20,8 @@ Using the `psql` tool, you'll need to run the following while logged in as the o
 create extension citext;
 ```
 
-#### Waterline attribute example
+### Waterline attribute example
 Here is an example of a "username" model attribute using citext with Waterline for case-insensitve querying.
-Notice that we need to explicitly set the `columnType` so that Waterline can build the correct `CREATE TABLE` queries
-when running it's migrations/table creation.
 ```js
 username: {
   type: 'string',
@@ -32,5 +30,7 @@ username: {
   unique: true,
   description: 'A users.. Username',
   // ...
-},
+}
 ```
+Notice that we need to explicitly set the [columnType](https://sailsjs.com/documentation/concepts/models-and-orm/attributes#?columntype)
+so that Waterline can build the correct `CREATE TABLE` queries using the `citext` column type when running it's migrations/table creation.

@@ -1,10 +1,26 @@
 module.exports =  [
   { text: 'Home', link: '/' },
+/*
   {
-    text: 'Guide',
+    text: '...',
     items: [
-      { text: 'lala', link: '/lala' }
+      {
+        text: 'Databases & ORM',
+        link: '/database/',
+      },
+      {
+        text: 'Parasails',
+        link: '/parasails/',
+      },
+      {
+        text: 'Deployment',
+        link: '/deployment/',
+      },
+      {
+        text: 'FAQ',
+        link: '/faq',
+      },
     ]
-  },
-  { text: 'External', link: 'https://google.com' },
+  }
+*/
 ]

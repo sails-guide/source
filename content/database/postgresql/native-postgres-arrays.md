@@ -11,15 +11,12 @@ Fancy storing arrays in your PostreSQL database using Sails.js and Waterline?
 
 Using the native support for arrays in Postgres is basically as easy as manually specifying a `columnType` in your model attributes.
 
-## Defining Array-Type Model Attributes
+### Defining Array-Type Model Attributes
 Below is an example of a Waterline attribute containing an array of strings:
 ```js
  favouriteFruits: {
   type: 'ref',
   columnType: 'text[]',
-  defaultsTo: null, 
-  // or, for a default empty array
-  // defaultsTo: []
   description: `An array of a user's favourite fruits`,
 },
 ```
@@ -29,8 +26,8 @@ And it's really as simple as that. Now throughout your Sails application you're 
 You might also want to check out the [PostgreSQL Arrays documentation](https://www.postgresql.org/docs/10/arrays.html)
 for a better understanding of the different column types available and other low-level usage examples.
 
-## Creating/Editing Records with Array Columns
-You're able to use the regular [create](https://sailsjs.com/documentation/reference/waterline-orm/models/create)/[update](https://sailsjs.com/documentation/reference/waterline-orm/models/update) methods passing an array as attributes value.
+### Creating/Editing Records with Array Columns
+You're able to use the regular [create](https://sailsjs.com/documentation/reference/waterline-orm/models/create)/[update](https://sailsjs.com/documentation/reference/waterline-orm/models/update) methods passing an array as an attribute's value.
 ```js
 let newFruitLover = await People.create({
   name: 'Bob',
@@ -38,9 +35,7 @@ let newFruitLover = await People.create({
 }).fetch()
 ```
 
-## Searching Array Columns
-It may come as no surprise that this isn't always going to be as clean as it could be.
-
+### Searching Array Columns
 For searching on an ***exact match*** of an array, you can use the usual query methods.
 ```js
 let results = await People.find({ favouriteFruits: ['apple', 'orange'] })
@@ -54,4 +49,4 @@ let appleLovers = await sails.sendNativeQuery(FRUIT_LOVERS_QUERY, ['apple']);
 // Any returned records should be found in
 //   appleLovers.rows
 ```
-The `@>` in the above query is Postgres' "contains" query operator. A list of other native Postgres array functions/operators are available [here](https://www.postgresql.org/docs/10/functions-array.htmls).
+The `@>` in the above query is Postgres' "contains" query operator. A list of other native Postgres array functions/operators are available [here](https://www.postgresql.org/docs/10/functions-array.html).

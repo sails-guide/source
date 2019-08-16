@@ -1,3 +1,1 @@
 # Working with Databases
-
-...
