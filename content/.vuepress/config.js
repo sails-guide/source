@@ -86,7 +86,7 @@ function getSidebar () {
       // ['mongodb', 'MongoDB'],
       // ['mysql', 'MySQL'],
     ]),
-    getSidebarMenu('Parasails', 'parasails'),
+    // getSidebarMenu('Parasails', 'parasails'),
     getSidebarMenu('Deployment', 'deployment'),
     'faq'
   ]
