@@ -3,8 +3,7 @@ node_js:
   - "10"
 
 script:
-  - npm install
-  - npm run build
+  - yarn build
 
 cache:
   directories:
