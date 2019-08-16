@@ -4,6 +4,7 @@ node_js:
 
 script:
   - yarn build
+  - echo "www.sailsguide.com" > content/.vuepress/dist/CNAME
 
 cache:
   directories:
