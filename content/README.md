@@ -1,6 +1,7 @@
 ---
 home: false
 editLink: false
+showComments: false
 ---
 <div class="home">
   <header class="hero">
