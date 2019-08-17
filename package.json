@@ -1,5 +1,6 @@
 {
   "name": "sailswiki",
+  "private": true,
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -10,10 +11,13 @@
   "author": "",
   "license": "",
   "dependencies": {
+    "mermaid": "^8.2.3",
     "vuepress": "^1.0.3"
   },
   "devDependencies": {
     "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
-    "vuepress-plugin-element-tabs": "^0.1.8"
+    "nodemon": "^1.19.1",
+    "vuepress-plugin-element-tabs": "^0.1.8",
+    "vuepress-plugin-flowchart": "^1.4.3"
   }
 }

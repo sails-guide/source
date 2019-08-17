@@ -11,3 +11,23 @@
   box-shadow: 0 0 2px 2px $accentColor inset;
   border-radius: 3px;
 }
+
+.vuepress_plugin__mermaid__wrapper {
+  text-align: center;
+
+  svg .node rect,
+  svg .node circle,
+  svg .node polygon,
+  svg .node * {
+    fill: #137AD8 !important;
+    stroke: #1a87eb !important;
+    stroke-width: 4px !important;
+  }
+
+  svg .node .label {
+    color: #fff !important;
+    div {
+      line-height: 2.6em;
+    }
+  }
+}

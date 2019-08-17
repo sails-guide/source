@@ -7,6 +7,7 @@ module.exports = {
 
   plugins: [
     'vuepress-plugin-element-tabs',
+    require('./plugins/vuepress-plugin-mermaid/lib/index.js'),
     [
       '@vuepress/google-analytics', {
       ga: 'UA-136500374-1'
