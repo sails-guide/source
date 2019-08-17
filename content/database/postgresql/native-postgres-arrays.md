@@ -11,7 +11,7 @@ Fancy storing arrays in your PostreSQL database using Sails.js and Waterline?
 
 Using the native support for arrays in Postgres is basically as easy as manually specifying a `columnType` in your model attributes.
 
-### Defining Array-Type Model Attributes
+## Defining Array-Type Model Attributes
 Below is an example of a Waterline attribute containing an array of strings:
 ```js
  favouriteFruits: {
@@ -26,7 +26,7 @@ And it's really as simple as that. Now throughout your Sails application you're 
 You might also want to check out the [PostgreSQL Arrays documentation](https://www.postgresql.org/docs/10/arrays.html)
 for a better understanding of the different column types available and other low-level usage examples.
 
-### Creating/Editing Records with Array Columns
+## Creating/Editing Records with Array Columns
 You're able to use the regular [create](https://sailsjs.com/documentation/reference/waterline-orm/models/create)/[update](https://sailsjs.com/documentation/reference/waterline-orm/models/update) methods passing an array as an attribute's value.
 ```js
 let newFruitLover = await People.create({
@@ -35,7 +35,7 @@ let newFruitLover = await People.create({
 }).fetch()
 ```
 
-### Searching Array Columns
+## Searching Array Columns
 For searching on an ***exact match*** of an array, you can use the usual query methods.
 ```js
 let results = await People.find({ favouriteFruits: ['apple', 'orange'] })
