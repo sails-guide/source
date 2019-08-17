@@ -70,7 +70,7 @@ function renderLink (h, to, text, active) {
 
 function renderChildren (h, children, path, route, maxDepth, depth = 1) {
   if (!children || depth > maxDepth) return null
-  if (path !== window.location.pathname) return null
+  if (typeof window !== 'undefined' && path !== window.location.pathname) return null
 
   return h('ul', { class: 'sidebar-sub-headers' }, children.map(c => {
     const active = isActive(route, path + '#' + c.slug)
