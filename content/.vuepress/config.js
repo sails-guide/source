@@ -88,6 +88,8 @@ function getSidebar () {
     ]),
     // getSidebarMenu('Parasails', 'parasails'),
     getSidebarMenu('Deployment', 'deployment'),
-    'faq'
+    'faq',
+    ['https://sailsjs.com/documentation', 'Offical Docs'],
+    ['https://gitter.im/balderdashy/sails', 'Gitter Chat'],
   ]
 }

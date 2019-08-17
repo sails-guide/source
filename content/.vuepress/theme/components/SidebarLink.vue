@@ -110,6 +110,10 @@ a.sidebar-link
   line-height 1.4
   width: 100%
   box-sizing: border-box
+  &[target=_blank]
+    font-weight initial !important
+    svg
+      margin-left: 5px
   &:hover
     color $accentColor
   &.active
@@ -124,4 +128,5 @@ a.sidebar-link
     border-left none
     &.active
       font-weight 500
+
 </style>
