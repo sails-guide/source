@@ -5,6 +5,15 @@ module.exports = {
   title: 'Sails Guide',
   description: 'Helping you to navigate the 7 seas',
 
+  plugins: [
+    'vuepress-plugin-element-tabs',
+    [
+      '@vuepress/google-analytics', {
+      ga: 'UA-136500374-1'
+    }
+    ]
+  ],
+
   themeConfig: {
     logo: '/images/captain.svg',
 
@@ -21,15 +30,6 @@ module.exports = {
         }
       }
     },
-
-    plugins: [
-      [
-        '@vuepress/google-analytics', {
-          ga: 'UA-136500374-1'
-        }
-      ]
-    ],
-
     // Assumes GitHub. Can also be a full GitLab url.
     repo: 'sails-guide/source',
     repoLabel: 'Wanna help?',
