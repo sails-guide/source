@@ -1,6 +1,6 @@
 # Deploying Sails.js with nginx
 
-Nginx is a powerful and lightweight HTTP server that we use to proxy between
+Nginx is a powerful and lightweight HTTP server that we use to proxy requests between
 the internet and our Sails application. By serving our web traffic with nginx we will be able to load-balance our web
 traffic between multiple application servers, host several domains or SSL certificates on the same IP address, set up L4 rate-limiting and access controls and much more.
 
@@ -11,6 +11,10 @@ N-->S[Sails]
 N-->S2[Sails]
 N-->S3[Sails]
 @flowend
+
+By the end of this guide all of our user traffic will flow into nginx and be passed off to one (or more) servers running our Sails application.
+
+By using nginx at the edge to accept and handle user requests, we will be able (but not required) to load-balance requests across multiple application servers to prepare for increases in traffic and allow for [horizontal scaling](https://en.wikipedia.org/wiki/Scalability#HORIZONTAL-SCALING).
 
 ## Application Requirements
 In order for client IP addresses to be accessible in Sails, you'll need to set [`sails.config.http.trustProxy`](https://sailsjs.com/documentation/reference/configuration/sails-config-http) to `true`. This guide also assumes that you have already configured your Sails application to run as a long-lived service.

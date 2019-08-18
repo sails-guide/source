@@ -82,6 +82,7 @@ function getSidebarMenu (title, basePath, subPaths) {
 function getSidebar () {
   return [
     ['/', 'Home'],
+    getSidebarMenu('Development', 'development'),
     getSidebarMenu('Databases & ORM', 'database', [
       ['postgresql', 'PostgreSQL'],
       // ['mongodb', 'MongoDB'],
