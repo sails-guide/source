@@ -89,7 +89,7 @@ function getSidebar () {
       // ['mysql', 'MySQL'],
     ]),
     // getSidebarMenu('Parasails', 'parasails'),
-    getSidebarMenu('Deployment', 'deployment'),
+    // getSidebarMenu('Deployment', 'deployment'),
     'faq',
     ['https://sailsjs.com/documentation', 'Offical Docs'],
     ['https://gitter.im/balderdashy/sails', 'Gitter Chat'],
