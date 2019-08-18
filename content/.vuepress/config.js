@@ -10,8 +10,11 @@ module.exports = {
     require('./plugins/vuepress-plugin-mermaid/lib/index.js'),
     [
       '@vuepress/google-analytics', {
-      ga: 'UA-136500374-1'
-    }
+        ga: 'UA-136500374-1'
+      }
+    ],
+    [
+      'sitemap', { hostname: 'https://www.sailsguide.com' }
     ]
   ],
 
