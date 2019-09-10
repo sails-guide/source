@@ -8,3 +8,9 @@
 
 ## Can I use Pug templates with Sails?
 [Using Pug templates with Sails.js](https://jarrod.linahan.id.au/blog/using-pug-templates-with-sailsjs/)
+
+## Can I have custom titles per page
+[Dynamic title from server side for Sails 1.x](https://medium.com/@Noitidart/dynamic-title-from-server-side-for-sails-1-x-b439e0497b7f)
+
+## Is there an alternative to find and replacing all the `NEW_APP_*` placeholders?
+[Instead of find and replace NEW_APP_* use a config (Sails 1.x)](https://medium.com/@Noitidart/instead-of-find-and-replace-new-app-use-a-config-sails-1-x-f5be83ade751)
