@@ -5,6 +5,7 @@
         class="item"
         :item="treeData"
         @selected="onSelect"
+        :open-by-default="true"
       ></tree-item>
     </ul>
     <div v-if="activeItem">
@@ -18,7 +19,11 @@
 // demo data
 var treeData = {
   name: 'Sails Application',
-  description: `Lalala\n\nLalalala`,
+  description: `
+    Lalala
+
+    You can explore the different parts of a Sails.js project by expanding the menu to the left.
+  `.trim().replace(/^( |\t)+/gm, ''),
   children: [
     {
       name: '/api',
@@ -31,13 +36,25 @@ var treeData = {
       ]
     },
     {
+      name: '/assets',
+      description: '',
+    },
+    {
       name: '/config',
       children: [
         {
           name: '/env',
+          description: `Environment-specific configuration overrides can be set here.`,
           children: [
             { name: 'production.js' }
           ]
+        },
+        {
+          name: '/locales',
+          description: `Store "locale" files for internationalization (ie, translations of your content)`
+          // children: [
+          //   { name: 'production.js' }
+          // ]
         },
         { name: 'connections.js' },
         { name: 'models.js' },
@@ -46,13 +63,29 @@ var treeData = {
       ]
     },
     {
-      name: 'scripts',
+      name: '/test',
+      description: '',
+    },
+    {
+      name: '/views',
+      description: '',
+    },
+    {
+      name: '/scripts',
       description: `Custom "shell scripts" that can be run using your Sails environment.`
     },
     {
-      name: 'tasks',
+      name: '/tasks',
       description: `Grunt tasks - used for managing and minifying your CSS, front-end JavaScript and other assets.`
-    }
+    },
+    {
+      name: '.sailsrc',
+      description: `...`
+    },
+    {
+      name: 'app.js',
+      description: `...`
+    },
   ]
 }
 
@@ -71,7 +104,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .anatomy {
   display: flex;
 }
@@ -82,18 +115,22 @@ export default {
   width: 180px;
   flex-shrink: 0;
 }
-.item {
+.anatomy .item {
   cursor: pointer;
 }
-.bold {
+.anatomy .bold {
   font-weight: bold;
 }
-ul {
+.anatomy ul {
   padding: 0;
+  padding-left: 1em;
   line-height: 1.5em;
   list-style-type: none;
 }
-.anatomy-desc {
+.anatomy ul:first-child {
+  padding: 0;
+}
+.anatomy .anatomy-desc {
   white-space: pre-wrap;
 }
 </style>

@@ -3,7 +3,7 @@
     <div
       :class="{bold: isFolder}"
       @click="toggle">
-      <span v-if="isFolder">[{{ isOpen ? '-' : '+' }}]</span>
+      <span v-if="false && !openByDefault && isFolder">[{{ isOpen ? '-' : '+' }}]</span>
       {{ item.name }}
     </div>
     <ul v-show="isOpen" v-if="isFolder">
@@ -24,7 +24,8 @@
 export default {
   name: 'tree-item',
   props: {
-    item: Object
+    item: Object,
+    openByDefault: Boolean
   },
   data: function () {
     return {
@@ -37,10 +38,13 @@ export default {
         this.item.children.length
     }
   },
+  mounted () {
+    if (this.openByDefault) { this.isOpen = true }
+  },
   methods: {
     toggle: function () {
       this.onSelect(this.item)
-      if (this.isFolder) {
+      if (!this.openByDefault && this.isFolder) {
         this.isOpen = !this.isOpen
       }
     },
@@ -52,8 +56,8 @@ export default {
 }
 </script>
 
-<style scoped>
-li {
+<style>
+.anatomy li {
   list-style-type: none;
 }
 </style>
