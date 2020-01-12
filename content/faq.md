@@ -14,3 +14,9 @@
 
 ## Is there an alternative to find and replacing all the `NEW_APP_*` placeholders?
 [Instead of find and replace NEW_APP_* use a config (Sails 1.x)](https://medium.com/@Noitidart/instead-of-find-and-replace-new-app-use-a-config-sails-1-x-f5be83ade751)
+
+## Using NODE_ENV=production with config/env/staging.js
+https://github.com/balderdashy/sails/issues/6925#issuecomment-571358922
+
+## `sails.config.http.trustProxy` is true, but cookies are not being set (behind nginx)
+https://github.com/balderdashy/sails/issues/6867
