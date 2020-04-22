@@ -20,3 +20,6 @@ https://github.com/balderdashy/sails/issues/6925#issuecomment-571358922
 
 ## `sails.config.http.trustProxy` is true, but cookies are not being set (behind nginx)
 https://github.com/balderdashy/sails/issues/6867
+
+## Can I add a policy from an installable hook?
+https://gitter.im/balderdashy/sails?at=5e9f4e6971a34b0149fe1063
