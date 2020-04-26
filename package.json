@@ -1,7 +1,7 @@
 {
-  "name": "sailswiki",
+  "name": "sailsguide",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,14 +11,14 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "mermaid": "^8.2.3",
-    "vuepress": "^1.0.3",
-    "vuepress-plugin-sitemap": "^2.1.2"
+    "mermaid": "^8.5.0",
+    "vuepress": "^1.4.1",
+    "vuepress-plugin-sitemap": "^2.3.1"
   },
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
-    "nodemon": "^1.19.1",
-    "vuepress-plugin-element-tabs": "^0.1.8",
+    "@vuepress/plugin-google-analytics": "^1.4.1",
+    "nodemon": "^2.0.3",
+    "vuepress-plugin-element-tabs": "^0.2.8",
     "vuepress-plugin-flowchart": "^1.4.3"
   }
 }
