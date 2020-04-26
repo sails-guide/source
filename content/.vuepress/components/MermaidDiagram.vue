@@ -3,6 +3,12 @@
     v-html="currOutput"></div>
 </template>
 
+<style>
+.vuepress_plugin__mermaid__wrapper svg {
+  max-width: 100%;
+}
+</style>
+
 <script>
 export default {
   props: ['id', 'value'],
