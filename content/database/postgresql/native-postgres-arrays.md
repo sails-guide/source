@@ -45,7 +45,7 @@ Unfortunately, searching for records that *contain* a single/several items in an
 It's at this point we may need to bust out some [raw SQL](https://sailsjs.com/documentation/reference/waterline-orm/datastores/send-native-query) and kick it old-school.
 ```js
 let FRUIT_LOVERS_QUERY = `SELECT * FROM "people" WHERE "favouriteFruits" @> $1`;
-let appleLovers = await sails.sendNativeQuery(FRUIT_LOVERS_QUERY, ['apple']);
+let appleLovers = await sails.sendNativeQuery(FRUIT_LOVERS_QUERY, [['apple']]);
 // Any returned records should be found in
 //   appleLovers.rows
 ```
