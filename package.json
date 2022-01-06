@@ -11,7 +11,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "mermaid": "^8.5.0",
+    "mermaid": "^8.13.8",
     "vuepress": "^1.4.1",
     "vuepress-plugin-sitemap": "^2.3.1"
   },
